@@ -7,7 +7,7 @@
 ### （2）Linux里面的 ~ 和 / 的区别
 
 `/`是根节点， `~`是 home
-***root也是挂载在“/”根节点下面的***
+***root也是挂载在“/”根节点下面的,home也是,所以root和home在同一级目录***
 
 ![](img/001.png)
 
@@ -189,4 +189,41 @@
 
 用到的时候再去查
 ![](img/037.png)
+
+1. chmod：更改文件权限
+   例如：chmod ug+rw project.txt   这句命令就是赋予project.txt这个文件的属主和属组 读和写 的权限；
+   也可以用数字来表示，如下图第二种方式
+
+   ![](img/038.png)
+
+   如果更改对象是一个目录，也可以加一个“-R”，以迭代更改目录下所有目录和文件的权限，如下图第5条
+   ![](img/039.png)
+
+2. chown：更改文件属主
+   ![](img/040.png)
+
+3. chgrp：更改文件属组
+   ![](img/041.png)
+
+### （5）搜索查找类
+
+主要有find、locate和grep，其中find和locate只能精确查找（但是是可以用 * 作为通配符的，例如 “ *.txt ” ），而grep可以模糊查找
+
+1. find
+   ![](img/042.png)
+2. locate：基于locate数据库，所以使用之前需要先updatedb
+   ![](img/043.png)
+3. grep配合 “ | ” 管道符
+   例如：ls | grep -n g 直接把ls的结果作为后面grep的“源文件“参数
+   ![](img/044.png)
+   补充：wc（word count）命令可统计文件次数等信息，例如 wc 我.txt
+
+### （6）压缩打包类
+
+1. gzip 和 gunzip  不保留源文件，不能压缩目录
+   ![](img/045.png)
+2. zip 和 unzip  可以压缩目录，且产生一个新文件，保留源文件
+   ![](img/046.png)
+3. tar 打包解包 压缩解压 一体化
+   ![](img/047.png)
 
